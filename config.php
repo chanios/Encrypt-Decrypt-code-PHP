@@ -5,7 +5,7 @@ set_time_limit(0); //set time limit in sec
 // DATABASE SETTING
 	$Cfg["mysql"]["host"] = "localhost"; //Tip: Don't change it. :D
 	$Cfg["mysql"]["user"] = "root"; // mysql username
-	$Cfg["mysql"]["pass"] = "1234boss"; // mysql password
+	$Cfg["mysql"]["pass"] = "your pass"; // mysql password
 	$Cfg["mysql"]["db"] = "passwordl"; //database to store
 //=================================================
 // Decrypt SETTING
