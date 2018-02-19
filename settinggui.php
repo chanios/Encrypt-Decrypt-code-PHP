@@ -17,7 +17,7 @@
 	$Cfg["decrypt"]["HASH_ALGO"] = $Cfg["hash"];
 //=================================================
 // Encrypt SETTING
-	$Cfg["encrypt"]["save"] = "on"; //on = save encrypt data in database off = don't save
+	$Cfg["encrypt"]["save"] = "on"; //on = save encrypt data in database , off = don't save
 //Don't edit This below
 //=================================================
 
