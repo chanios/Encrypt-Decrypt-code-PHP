@@ -1,4 +1,4 @@
-# Encrypt-Decrypt-code-PHP
-Encrypt &amp; Decrypt code PHP
+# Encrypt-Decrypt-hash-PHP
+Encrypt &amp; Decrypt hash PHP
 
 Easy to config with edit config.php file
