@@ -11,7 +11,7 @@ $hash_password = $_GET['md5'];
 if(mysql_num_rows(mysql_query("SELECT * FROM `$hashl` WHERE hash ='$hash_password'"))>0){
 $res=mysql_query("SELECT * FROM `$hashl` WHERE hash = '$hash_password'");
 $getdata=mysql_fetch_array($res);
-				$log['hash'] = $hash_password;
+				$log['input'] = $hash_password;
                 $log['output'] = $getdata['data'];
                 $time_end = getmicrotime();
                 $time = $time_end - $time_start;
@@ -29,7 +29,7 @@ if($hashl == "base64"){
 // max length of password to try
 define('PASSWORD_MAX_LENGTH', $Cfg["decrypt"]["PASSWORD_MAX_LENGTH"]);
 
-$charset = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456879';
+$charset = $Cfg['decrypt']['charset'];
 //$charset .= '0123456789';
 //$charset .= 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 //$charset .= '~`!@#$%^&*()-_\/\'";:,.+=<>? ';
