@@ -1,33 +1,20 @@
 <?php
+if(!file_exists("./config.php"))
+{
+	echo "<script>
+	window.location = './install.php'; 
+	</script>";
+}
 require('config.php');
 ?>
 <!DOCTYPE html>
 <html>
-
-<head>
-	<title>MD5 Encryption - Kecerdasan Buatan UMJ Sore :. Ahyar</title>
-	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-	<meta name="generator" content="Geany 1.22" />
-	<script type="text/javascript" src="jquery.js"></script>
-	<link href="style.css" rel="stylesheet" type="text/css"/>
-</head>
-<body>
-	<div id="container">
-		<h2>Encrypt and decrypt <?php echo $Cfg["hash"];?></h2>
-		<input type="text" class="str"/>
-		<input type="button" value="Encrypt Me!" id="tbl-enkrip" class="tbl"/>
-		<input type="button" value="Decrypt Me!" id="tbl-dekrip" class="tbl"/>
-	<div id="result-bar">
-		Hash :<br/>
-		<span class="hasil"></span>
-	</div>
-	<a href="http://www.ayayank.com" title="Mengenkripsi dan mendekripsi md5">ayayank.com</a>
-	</div>
-	<!-- manipulasi AJAX -->
-	<script>
+<script src="./jquery.js"></script>
+<!-- right click -->
+<script>
             var menuDisplayed = false;
             var menuBox = null;
-
+            
             window.addEventListener("contextmenu", function() {
 			if(!document.getElementById('copyer')==null){
 			document.getElementById('copyer').remove();
@@ -50,11 +37,11 @@ require('config.php');
                 menuBox.style.top = top + "px";
                 menuBox.style.display = "block";
 				menuBox.style.animation = "sweepmenu .5s ease-in-out";
-
+                
                 arguments[0].preventDefault();
 					menuDisplayed = true;
             }, false);
-
+            
             window.addEventListener("click", function() {
                 if(menuDisplayed == true){
 					menuDisplayed = false;
@@ -63,9 +50,9 @@ require('config.php');
 					}, 100);
 					menuBox.style.animation = "sweepmenud .5s ease-in-out";
 					window.setTimeout(function () {
-						menuBox.style.display = "none";
+						menuBox.style.display = "none"; 
 					}, 500);
-
+                    
                 }
             }, true);
 			    function copyy() {
@@ -104,7 +91,7 @@ window.getSelection().selectAllChildren(copyer);
 				background: rgba(28,28,28,0.9);
 				z-index: 999999999999990;
             }
-
+            
             .menu-item
             {
 				color: #ffffff;
@@ -113,7 +100,7 @@ window.getSelection().selectAllChildren(copyer);
 				overflow: hidden;
 				z-index: 9999999999999900;
             }
-
+            
             .menu-item:hover
             {
                 background-color: rgba(100,100,100,0.9);
@@ -121,8 +108,8 @@ window.getSelection().selectAllChildren(copyer);
             }
 	* {
     transition: -webkit-filter 0.5s cubic-bezier(0.65, 0.05, 0.36, 1),width 0.5s cubic-bezier(0.65, 0.05, 0.36, 1) background-color 0.5s cubic-bezier(0.65, 0.05, 0.36, 1),
-	color 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
-    will-change: -webkit-filter, width, background-color, color;
+	color 0.5s cubic-bezier(0.65, 0.05, 0.36, 1),scale 0.5s cubic-bezier(0.65, 0.05, 0.36, 1);
+    will-change: -webkit-filter, width, background-color, color, scale;
 }
 </style>
         <div class="menu">
@@ -134,35 +121,150 @@ window.getSelection().selectAllChildren(copyer);
             <hr>
             <div class="menu-item">@chan022YT</div>
         </div>
+<!-- End right click -->
+<center>
+<div><h1>Encrypt & Decrypt <?php echo $Cfg['hash'];?></h1></div>
+<hr></hr>
+<input type="text" class="str"/>
+		<input type="button" value="Encrypt Me!" id="tbl-enkrip" class="tbl"/>
+		<input type="button" value="Decrypt Me!" id="tbl-dekrip" class="tbl"/>
+		<div id="result-bar">
+		<span class="hasil"></span>
+	</div>
+</center>
+</html>
+    <style>
+	*:hover{
+		transform: scale(1.05,1.05);
+	}
+    div {
+        font-family: 'Open Sans', Helvetica, sans-serif;
+    }
 
+    hr {
+        border: 0;
+        background-color: #e6e6e6;
+        height: 1px;
+    }
+    h1 {color: #ff8000;font-size: 32px;letter-spacing: -0.408px;}
+    a {
+        color: inherit;
+    }
+
+    #main_container {
+        max-width: 577px;
+        min-width: 240px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -60%);
+        -moz-transform: translate(-50%, -60%);
+        -ms-transform: translate(-50%, -60%);
+        transform: translate(-50%, -60%);
+    }
+
+    tit1le {
+        font-size: 36px;
+        font-weight: 300;
+        text-align: left;
+        letter-spacing: -0.01em;
+        line-height: 40px;
+    }
+
+    #underline {
+        margin-top: 20px;
+        margin-left: -1px;
+    }
+
+    #main_text {
+        margin-top: 20px;
+        color: #121314;
+        font-size: 16px;
+        letter-spacing: -0.01em;
+        line-height: 24px;
+    }
+
+    #additional_text {
+        color: #7a7574;
+        font-size: 14px;
+        letter-spacing: -0.01em;
+        line-height: 18px;
+    }
+
+    .red {
+        color: #e81123;
+    }
+
+    .orange {
+        color: #ff8000;
+    }
+
+    @media only screen and (max-width: 500px) {
+        #underline {
+            margin-top: 10px;
+
+        }
+        #main_text {
+            color: #373b3f;
+        }
+        #title {
+            font-size: 32px;
+            letter-spacing: -0.48px;
+        }
+        #additional_text {
+            letter-spacing: -0.21px;
+            line-height: 24px;
+        }
+        hr {
+            opacity: 0.2;
+        }
+    }
+    </style>
 	<script>
 function md5decode(hash){
 var output;
 $.ajax({
 			   type: "POST",
-			   url: ("brute-force.php?md5=" + hash),
+			   url: ("brute-force.php?md5=" + hash + '&me=<?php echo $Cfg["hash"];?>'),
 			   data: {
 						},
 			   async: false,
 			   dataType: "json",
 			   success: function(data){
+			   input = data.input;
 			   output = data.output;
+			   use = data.use;
 			}});
-			return output;
+			return ("<hr>hash input: " + input + "<hr>string: " + output + "<hr>use time:" + use);
+}
+function md5encode(string){
+var output;
+$.ajax({
+			   type: "POST",
+			   url: ("encrypt.php?str=" + string + '&me=<?php echo $Cfg["hash"];?>'),
+			   data: {
+						},
+			   async: false,
+			   dataType: "json",
+			   success: function(data){
+			   input = data.input;
+			   output = data.output;
+			   use = data.use;
+			}});
+			return ("<hr>string input: " + input + "<hr>hash: " + output + "<hr>use time:" + use);
 }
 		$(document).ready(function(){
 		$('#tbl-enkrip').click(function(){
 			var string = $('.str').val();
 			$('.hasil').html('<img src="img/loader.gif"> Loading..');
-			$('.hasil').load('encrypt.php?str='+string+'&me=<?php echo $Cfg["hash"];?>');
+			$('.hasil').html(md5encode(string));
 			});
 		$('#tbl-dekrip').click(function(){
 			var string = $('.str').val();
 			$('.hasil').html('<img src="img/loader.gif"> Loading..');
-			$('.hasil').load('brute-force.php?md5='+string+'&me=<?php echo $Cfg["hash"];?>');
+			$('.hasil').html(md5decode(string));;
 			});
 		});
 	</script>
-	<!-- Akhir manipulasi AJAX -->
 </body>
 </html>
